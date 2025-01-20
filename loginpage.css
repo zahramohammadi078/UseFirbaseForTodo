@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #8aaee0;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    background: white;
+    color: #05224d;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-section form {
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #8aaee0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-section form button {
+    padding: 10px;
+    background-color: #05224d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-section form button:hover {
+    background-color: #8aaee0;
+}
+
+.form-section.log-in {
+    background-color: #05224d;
+    color: white;
+}
+
+.form-section.log-in form input {
+    border: 1px solid white;
+}
+
+.form-section.log-in form button {
+    background-color: #8aaee0;
+}
+
+.form-section.log-in form button:hover {
+    background-color: white;
+    color: #05224d;
+}
