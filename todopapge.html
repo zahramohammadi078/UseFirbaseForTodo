@@ -4,9 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="todo.css" />
+    <script type="module" src="./todopapge.js"></script>
   </head>
   <body>
+    <div class="header">
+      <div class="header-items">
+        <div class="last-and-first">
+          <div class="header-text">Your Name: <span id="loggedUserFName" class="header-text-items"></span></div>
+          <div><span id="loggedUserLName" class="header-text-items"></span></div>
+        </div>
+        <div class="header-text">Email: <span id="loggedUserEmail" class="header-text-items"></span></div>
+      </div>  
+        <button id="logout">Logout</button>
+    </div>
     <div class="text-up">
       <p class="text">My</p>
       <p class="text">Todo</p>
