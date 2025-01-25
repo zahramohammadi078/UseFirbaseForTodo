@@ -15,7 +15,6 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11
     measurementId: "G-SCL03Q23KB"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   
 
@@ -63,7 +62,7 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11
     .catch((error)=>{
         const errorCode=error.code;
         if(errorCode=='auth/email-already-in-use'){
-            showMessage('Email Address Already Exists !!!', 'signUpMessage');
+            showMessage('Email Address Already Exists', 'signUpMessage');
         }
         else{
             showMessage('unable to create User', 'signUpMessage');
