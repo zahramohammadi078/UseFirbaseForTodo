@@ -1,9 +1,13 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
   
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,signInAnonymously  } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
-  
+
+
+  if(localStorage.getItem("loggedInUserId")){
+    window.location.href = "todopapge.html"; 
+  }
   const firebaseConfig = {
     apiKey: "AIzaSyBNMvZvFc-cBYSRBhqWM7z0Nc_dQi-b9Nk",
     authDomain: "todolist-zahra.firebaseapp.com",
@@ -16,7 +20,7 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11
   };
 
   const app = initializeApp(firebaseConfig);
-  
+  const auth = getAuth();
 
   function showMessage(message, divId){
     var messageDiv=document.getElementById(divId);
@@ -27,6 +31,23 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11
         messageDiv.style.opacity=0;
     },5000);
  }
+
+ const anonymousBtn = document.getElementById("anonymousLogin");
+
+anonymousBtn.addEventListener("click", () => {
+  signInAnonymously(auth)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log("Anonymous user signed in:", user.uid);
+      localStorage.setItem("loggedInUserId", user.uid); 
+      window.location.href = "todopapge.html"; 
+    })
+    .catch((error) => {
+      console.error("Error signing in anonymously:", error);
+      showMessage("Unable to login anonymously", "signInMessage");
+    });
+});
+ 
 
   const signUp=document.getElementById('submitSignUp');
   signUp.addEventListener('click', (event)=>{
